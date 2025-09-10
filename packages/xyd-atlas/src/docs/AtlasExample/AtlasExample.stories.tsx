@@ -3,7 +3,7 @@ import type {Meta} from '@storybook/react';
 
 import {Reference} from '@xyd-js/uniform';
 
-import {MDXReference} from "@/utils/mdx";
+import type {MDXReference} from "@/utils/mdx";
 import {Atlas} from '@/components/Atlas';
 import {uniformToReferences} from "./uniform-to-references";
 
@@ -19,12 +19,13 @@ export default {
 // const Template = (args) => <Atlas/>;
 
 const Template = (args) => {
-    const [references, setReferences] = useState<MDXReference<Reference[]> | []>([])
+    const [references, setReferences] = useState<Reference[] | []>([])
 
     async function load() {
         const resp = await uniformToReferences()
-        if (resp && resp.length) {
-            setReferences(resp)
+        const refs = Array.isArray(resp) ? resp : (resp?.references || [])
+        if (refs && refs.length) {
+            setReferences(refs)
         }
     }
 
@@ -39,7 +40,7 @@ const Template = (args) => {
         flexDirection: "column",
         margin: "0 auto"
     }}>
-        <Atlas references={references}/>
+        <Atlas kind="primary" references={references}/>
     </div>
 }
 

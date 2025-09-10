@@ -8,7 +8,8 @@ import { AtlasSecondary } from "./AtlasSecondary";
 import * as cn from "./Atlas.styles";
 
 interface AtlasProps<T> extends MDXCommonAtlasProps<T> {
-    kind: "secondary" | "primary" | undefined | null
+    // kind is optional; defaults to primary when not provided
+    kind?: "secondary" | "primary" | null
 }
 
 export function Atlas<T>(props: AtlasProps<T>) {

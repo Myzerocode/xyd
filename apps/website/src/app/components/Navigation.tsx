@@ -4,6 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronDownIcon, BookIcon, CodeIcon, BeakerIcon, GearIcon } from "@primer/octicons-react"
+import Image from "next/image"
 import { IconLiveSession } from "@/app/components/index"
 
 interface NavigationProps {
@@ -78,15 +79,23 @@ export function Navigation({ className = "" }: NavigationProps) {
         <Link href="/" style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '0.75rem',
+          gap: '0.5rem',
           textDecoration: 'none',
           color: 'inherit'
         }}>
-          <IconLiveSession fill="#fff" />
+          <Image
+            src="/sophosic-logo.svg"
+            alt="Sophosic logo"
+            width={28}
+            height={28}
+            priority
+            style={{ display: 'block' }}
+          />
           <span style={{
-            fontSize: '1.25rem',
-            fontWeight: 'bold',
-            color: '#fff'
+            fontSize: '1.1rem',
+            fontWeight: 700,
+            color: '#fff',
+            letterSpacing: '0.2px'
           }}>
             Sophosic
           </span>

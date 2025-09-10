@@ -3,6 +3,8 @@ title: Introduction
 icon: book-open
 og:title: "Og title"
 description: Documentation platform built for developers
+author: "alexdev"
+createdAt: "2024-01-15T10:00:00.000Z"
 ---
 
 # Introduction

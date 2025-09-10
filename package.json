@@ -7,6 +7,7 @@
   "packageManager": "pnpm@9.10.0",
   "scripts": {
     "dev": "pnpm lerna watch -- lerna run build",
+    "dev:apps": "(pnpm --filter @xyd-js/apidocs-demo exec react-router dev --port 5173 --host) & (pnpm --filter @xyd-js/website exec next dev -p 3000)",
     "dev:styles": "pnpm --filter \"@xyd-js/components\" --filter \"@xyd-js/ui\" --parallel dev",
     "build": "pnpm run --filter=\"./packages/**/*\" build",
     "build:storybook": "pnpm run build && pnpm run --filter=\"./packages/**/*\" build:storybook",

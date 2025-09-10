@@ -171,9 +171,9 @@ function $Definitions({
                     if (matchingVariant) {
                         // Add meta flag to indicate this property has arguments, but only if it doesn't already have it
                         const meta = prop.meta || []
-                        if (!meta.some(m => m.name === 'hasArguments')) {
+                        if (!meta.some(m => (m as unknown as { name: string }).name === 'hasArguments')) {
                             meta.push({
-                                name: 'hasArguments', // TODO: better solution in the future
+                                name: 'hasArguments' as any, // runtime-only flag
                                 value: 'true'
                             })
                         }

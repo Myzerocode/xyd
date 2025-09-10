@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <!-- Rounded square border -->
+  <rect x="16" y="16" width="224" height="224" rx="40" stroke="white" stroke-width="12"/>
+  <!-- Stylized S mark -->
+  <path d="M96 76c0-15.464 16.118-28 36-28s36 12.536 36 28-11.54 24.23-30.41 28.6l-18.94 4.2C104.13 112.2 96 118.46 96 130c0 15.46 16.12 28 36 28s36-12.54 36-28" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dot -->
+  <circle cx="128" cy="196" r="10" fill="white"/>
+</svg>
+

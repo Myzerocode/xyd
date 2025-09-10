@@ -11,7 +11,7 @@ import {
     referenceAST
 } from "@xyd-js/uniform/markdown";
 
-import {MDXReference} from "@/utils/mdx";
+import type {MDXReference} from "@/utils/mdx";
 import todoAppUniform from "./todo-app.uniform.json";
 
 // since unist does not support heading level > 6, we need to normalize them
@@ -78,7 +78,7 @@ function getMDXExport(code: string) {
     return fn(scope)
 }
 
-export async function uniformToReferences(): Promise<MDXReference<Reference[]> | []> {
+export async function uniformToReferences(): Promise<MDXReference<Reference[]> | Reference[] | []> {
     let content: string = ""
 
     for (const ref of todoAppUniform as Reference[]) {
@@ -94,7 +94,7 @@ export async function uniformToReferences(): Promise<MDXReference<Reference[]> |
     const parsedContent = contentCode ? parse(contentCode) : null
 
     if (parsedContent) {
-        return parsedContent.references
+        return parsedContent as MDXReference<Reference[]>;
     }
 
     return []

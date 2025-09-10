@@ -120,7 +120,14 @@ export interface PropMetaProps extends DefinitionPropertyMeta {
 }
 
 function PropMeta(props: PropMetaProps) {
-    let valueText = props.value
+    // Coerce meta value to a safe renderable ReactNode
+    const rawValue = props.value as unknown
+    let valueText: React.ReactNode = (rawValue as React.ReactNode) ?? ""
+
+    // Runtime-only meta we don't want to render
+    if ((props as unknown as { name: string }).name === 'hasArguments') {
+        return null
+    }
 
     switch (props.name) {
         case "required":
@@ -146,17 +153,15 @@ function PropMeta(props: PropMetaProps) {
             return null
         case "internal":
             return null
-        case "hasArguments":
-            return null
     }
 
-    return <atlas-apiref-propmeta data-name={props.name} data-value={props.value}>
+    return <atlas-apiref-propmeta data-name={props.name} data-value={String(props.value)}>
         <dd>
             <code>
                 {
                     props.href
-                        ? <a href={props.href}>{valueText}</a>
-                        : valueText
+                        ? <a href={props.href}>{valueText as React.ReactNode}</a>
+                        : (valueText as React.ReactNode)
                 }
             </code>
         </dd>
@@ -217,7 +222,8 @@ function SubProperties({ parent, properties }: SubPropertiesProps) {
         return null
     }
 
-    const hasArguments = parent.meta?.some(m => m.name === 'hasArguments' && m.value === 'true')
+    // Narrow type safely - meta.name union doesn't include 'hasArguments' in types, but may appear at runtime
+    const hasArguments = parent.meta?.some(m => (m as unknown as { name: string }).name === 'hasArguments' && m.value === 'true')
 
     return <>
         {foundProperties?.length ? <PropToggle
