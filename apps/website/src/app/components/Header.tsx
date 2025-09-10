@@ -13,6 +13,8 @@ export function Header() {
         title={<code>xyd</code>}
         fixed={false}
     >
+        <SubdomainNavBar.Link href="/docs">Docs</SubdomainNavBar.Link>
+        <SubdomainNavBar.Link href="/admin">Admin</SubdomainNavBar.Link>
         <SubdomainNavBar.Link href="#">Guide</SubdomainNavBar.Link>
         <SubdomainNavBar.Link href="#">Reference</SubdomainNavBar.Link>
         <SubdomainNavBar.SecondaryAction

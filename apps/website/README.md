@@ -1,6 +1,6 @@
-# XYD Website
+# Sophosic Website
 
-This is the official website for the XYD project, built with Next.js and modern web technologies.
+This is the official website for the Sophosic project, built with Next.js and modern web technologies.
 
 ## 🚀 Features
 
@@ -20,7 +20,7 @@ This is the official website for the XYD project, built with Next.js and modern 
 - **Language**: TypeScript
 - **UI Components**: 
   - Primer React Brand
-  - XYD Components
+  - Sophosic Components
   - Octicons React
   - Cosmocss Land
 - **Animation**: 
@@ -97,7 +97,7 @@ website/
 
 ## 📚 Documentation
 
-For more information about the XYD project and its components, visit our documentation.
+For more information about the Sophosic project and its components, visit our documentation.
 
 ## 🤝 Contributing
 

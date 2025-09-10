@@ -61,11 +61,11 @@ export async function Customization() {
     </div>
 }
 
-export async function Code({codeblock}: { codeblock: RawCode }) {
-    const highlighted = await highlight(codeblock, DEFAULT_CODE_THEME)
+export function Code({codeblock}: { codeblock: RawCode }) {
+    // For now, return a simple pre element until we can properly handle async highlighting
     return (
-        <Pre
-            code={highlighted}
-        />
+        <pre>
+            <code>{codeblock.value}</code>
+        </pre>
     )
 }
